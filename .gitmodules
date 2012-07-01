@@ -1,0 +1,3 @@
+[submodule "nanoircparser"]
+	path = nanoircparser
+	url = https://github.com/tokuhirom/nanoircparser.git
