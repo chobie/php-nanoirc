@@ -3,7 +3,7 @@ php-nanoirc
 
 php-nanoirc binding
 
-Useage
+Usage
 ======
 
 ````php
