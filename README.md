@@ -37,4 +37,4 @@ Shuhei Tanuma
 LICENSE
 =======
 
-MIT LICENSE
+PHP LICENSE
