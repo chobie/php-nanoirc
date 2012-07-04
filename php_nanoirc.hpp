@@ -30,7 +30,7 @@ extern zend_class_entry *nanoirc_parser_class_entry;
 
 typedef struct {
 	zend_object zo;
-	NanoIRCParser parser;
+	NanoIRCParser *parser;
 } php_nanoirc_parser_t;
 
 }

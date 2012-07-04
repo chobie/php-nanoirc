@@ -33,6 +33,7 @@ static zend_object_value php_nanoric_parser_new(zend_class_entry *ce TSRMLS_DC) 
 	php_nanoirc_parser_t *object;
 
 	object = (php_nanoirc_parser_t *)ecalloc(1, sizeof(*object));
+	object->parser = new NanoIRCParser;
 	zend_object_std_init(&object->zo, ce TSRMLS_CC);
 	object_properties_init(&object->zo, ce);
 
@@ -47,6 +48,7 @@ static zend_object_value php_nanoric_parser_new(zend_class_entry *ce TSRMLS_DC) 
 
 static void php_nanoirc_parser_free_storage(php_nanoirc_parser_t *obj TSRMLS_DC)
 {
+        delete obj->parser;
 	zend_object_std_dtor(&obj->zo TSRMLS_CC);
 	efree(obj);
 }
@@ -67,7 +69,7 @@ PHP_METHOD(nanoirc_parser, parse)
 	}
 	
 	container = (php_nanoirc_parser_t *) zend_object_store_get_object(getThis() TSRMLS_CC);
-	container->parser.parse(str, msg);
+	container->parser->parse(str, msg);
 	
 	MAKE_STD_ZVAL(result);
 	array_init(result);
